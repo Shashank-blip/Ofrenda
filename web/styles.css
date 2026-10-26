@@ -1,0 +1,296 @@
+:root {
+  --night: #140e0c;
+  --niche: #3a241c;
+  --niche-deep: #2a1814;
+  --wax: #f4e7cf;
+  --flame: #ff9f1c;
+  --flame-core: #fff4d6;
+  --marigold: #e8a317;
+  --petal: #c4512c;
+  --ash: #a89888;
+  --smoke: #6e5e54;
+  --display: "Constantia", "Palatino Linotype", Palatino, Georgia, serif;
+  --body: "Candara", "Segoe UI", sans-serif;
+  --mono: "Cascadia Mono", Consolas, monospace;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse 70% 32% at 50% -4%, rgba(232, 163, 23, 0.18), transparent 62%),
+    var(--night);
+  color: var(--wax);
+  font-family: var(--body);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.mast {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: 4.2rem 1.4rem 0.4rem;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--marigold);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0.15rem 0 0.7rem;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(3.4rem, 9vw, 6.2rem);
+  letter-spacing: -0.035em;
+  line-height: 0.88;
+}
+
+.lede {
+  max-width: 34rem;
+  margin: 0;
+  color: var(--wax);
+  font-size: 1.15rem;
+}
+
+.status {
+  min-height: 1.4rem;
+  margin: 0.9rem 0 0;
+  color: var(--ash);
+  font-size: 0.92rem;
+}
+
+.status.lit { color: var(--marigold); }
+
+.path-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 0.7rem;
+  align-items: end;
+  max-width: 58rem;
+  margin: 0 auto;
+  padding: 1.6rem 1.4rem 1.2rem;
+}
+
+.path-form label {
+  flex-basis: 100%;
+  color: var(--ash);
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+input[type="text"] {
+  flex: 1 1 16rem;
+  padding: 0.65rem 0.1rem;
+  border: none;
+  border-bottom: 1px solid var(--marigold);
+  border-radius: 0;
+  background: transparent;
+  color: var(--wax);
+  font: inherit;
+}
+
+input::placeholder { color: var(--smoke); }
+
+button {
+  padding: 0.72rem 1.05rem;
+  border: none;
+  background: var(--petal);
+  color: var(--wax);
+  font: inherit;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: transparent;
+  color: var(--marigold);
+  box-shadow: inset 0 0 0 1px var(--marigold);
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+:focus-visible {
+  outline: 2px solid var(--marigold);
+  outline-offset: 3px;
+}
+
+.notice {
+  max-width: 58rem;
+  margin: 0 auto;
+  padding: 0 1.4rem 1rem;
+  color: var(--flame-core);
+}
+
+.shelf {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
+  gap: 0.95rem;
+  align-items: start;
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0.4rem 1.4rem 2rem;
+}
+
+.niche {
+  --quiet: 0.4;
+  min-height: 17.5rem;
+  padding: 1rem 1rem 1.15rem;
+  background: linear-gradient(180deg, var(--niche) 0%, var(--niche-deep) 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(244, 231, 207, 0.08),
+    inset 0 -28px 40px rgba(0, 0, 0, 0.38);
+}
+
+.niche.open {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 4.2rem 1fr;
+  column-gap: 0.4rem;
+  align-items: start;
+}
+
+.niche.open .flame {
+  grid-row: 1 / span 5;
+  height: auto;
+  min-height: 7rem;
+  align-items: center;
+}
+
+.flame {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 4.4rem;
+}
+
+.flame i {
+  display: block;
+  width: 1.15rem;
+  height: calc(3.4rem - (var(--quiet) * 2.15rem));
+  border-radius: 50% 50% 42% 42% / 62% 62% 40% 40%;
+  background: radial-gradient(circle at 50% 72%, var(--flame-core), var(--flame) 46%, transparent 74%);
+  box-shadow: 0 0 16px rgba(255, 159, 28, 0.45);
+  transform-origin: bottom center;
+  opacity: calc(1 - (var(--quiet) * 0.55));
+  animation: flicker 1.7s ease-in-out infinite;
+}
+
+@keyframes flicker {
+  0%, 100% { transform: scaleY(1) rotate(-1.5deg); }
+  50% { transform: scaleY(0.9) rotate(2deg); }
+}
+
+.niche h2 {
+  margin: 0.35rem 0 0.15rem;
+  font-family: var(--display);
+  font-size: 1.85rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.years, .quiet {
+  margin: 0;
+  color: var(--ash);
+  font-size: 0.92rem;
+}
+
+.quiet { color: var(--marigold); }
+
+.inscription {
+  margin: 0.85rem 0 0;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.ask { margin-top: 1rem; }
+
+.speech {
+  margin-top: 1.15rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(232, 163, 23, 0.35);
+}
+
+.epitaph {
+  margin: 0 0 0.75rem;
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.remembrance {
+  max-width: 42rem;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.record {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.record li {
+  margin: 0.25rem 0;
+  color: var(--ash);
+  font-family: var(--mono);
+  font-size: 0.82rem;
+}
+
+.record time { color: var(--marigold); }
+
+.offering {
+  max-width: 42rem;
+  margin-top: 1.1rem;
+  padding: 0.85rem 1rem 1rem;
+  background: #4a2c14;
+}
+
+.offering span {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--marigold);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.spoken-by {
+  margin: 0.8rem 0 0;
+  color: var(--smoke);
+  font-size: 0.82rem;
+}
+
+.waiting {
+  color: var(--ash);
+  font-style: italic;
+}
+
+.colophon {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 0 1.4rem 3.5rem;
+  color: var(--smoke);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 640px) {
+  button, button.secondary { flex: 1 1 auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flame i { animation: none; }
+}

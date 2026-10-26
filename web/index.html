@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ofrenda</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <header class="mast">
+    <p class="eyebrow">On this machine</p>
+    <h1>Ofrenda</h1>
+    <p class="lede">A visit to repositories that went quiet. What they say stays here.</p>
+    <p class="status" id="status">Checking the lamp…</p>
+  </header>
+
+  <form id="altar-form" class="path-form">
+    <label for="path">Folder of repositories</label>
+    <input id="path" name="path" type="text" placeholder="D:\old-projects" autocomplete="off" spellcheck="false">
+    <button type="submit">Light the altar</button>
+    <button type="button" id="sample" class="secondary">Sit with the sample</button>
+  </form>
+
+  <p id="notice" class="notice" hidden></p>
+  <section id="shelf" class="shelf" aria-live="polite"></section>
+
+  <footer class="colophon">
+    <p>The repository speaks only from its own record. Commit messages, a short readme, and unfinished notes. No diffs leave the folder, and the model runs on this machine.</p>
+  </footer>
+  <script src="/assets/app.js"></script>
+</body>
+</html>
